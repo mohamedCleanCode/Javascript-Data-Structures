@@ -1,48 +1,46 @@
-// node has two pieces are date and pointer
-function Node(element) {
-  this.element = element;
-  this.next = null;
+class Node {
+  constructor(date, next = null) {
+    this.date = date;
+    this.next = next;
+  }
 }
 
-// linkedList
-function LinkedList() {
-  let length = 0;
-  let head = null;
-
-  // size method
-  this.size = () => {
-    return length;
-  };
-  // head method
-  this.head = () => {
-    return head;
-  };
+class LinkedList {
+  constructor(head = null) {
+    this.head = head;
+    this.length = 0;
+  }
   // add method
-  this.add = (element) => {
-    let node = new Node(element); // new node
-    if (head == null) {
-      // if linked list is empty
-      head = node; // head = first node
+  add(element) {
+    let node = new Node(element);
+    if (this.head === null) {
+      this.head = node;
     } else {
-      let currentNode = head;
+      let currentNode = this.head;
       while (currentNode.next) {
         currentNode = currentNode.next;
       }
       currentNode.next = node;
     }
-    length++;
-  };
+    this.length++;
+  }
 }
 
 let arr = new LinkedList();
-console.log(arr.size());
-console.log(arr.head());
+console.log(arr.length);
+console.log(arr.head);
 arr.add("ele-1");
-console.log(arr.size());
-console.log(arr.head());
+console.log(arr.length);
+console.log(arr.head);
 arr.add("ele-2");
-console.log(arr.size());
-console.log(arr.head());
+console.log(arr.length);
+console.log(arr.head);
 arr.add("ele-3");
-console.log(arr.size());
-console.log(arr.head());
+console.log(arr.length);
+console.log(arr.head);
+arr.add("ele-4");
+console.log(arr.length);
+console.log(arr.head);
+arr.add("ele-5");
+console.log(arr.length);
+console.log(arr.head);
